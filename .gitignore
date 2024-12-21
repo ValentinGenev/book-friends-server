@@ -1,0 +1,5 @@
+node_modules/
+
+# Google App Script
+#   .clasp.json holds the environment variables
+.clasp.json
