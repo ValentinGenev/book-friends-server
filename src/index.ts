@@ -1,7 +1,9 @@
-/**
- * Google Apps Script entry point
- * @returns the html template
- */
+import { TableFactory } from "./data/TableFactory"
+
+const tableFactory = new TableFactory('SHEET_ID')
+const booksTable = tableFactory.getTable('BOOKS_TABLE_ID')
+
 function doGet() {
-  return HtmlService.createHtmlOutput('Hello, reader!')
+  const books = booksTable.getAll().map(row => row.join(' ')).join(', ')
+  return HtmlService.createHtmlOutput(books)
 }

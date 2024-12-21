@@ -1,4 +1,4 @@
-# google-app-script-template
+# book-friends-server
 
 Use `npm run dev:watch` to push changes to the test environment.
 
