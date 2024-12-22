@@ -1,23 +1,14 @@
-# book-friends-server
+# Book Friends
+An application that allows its users to:
+- crete list of he books they read or are currently reading;
+- write notes for each book; and
+- leave reviews for the books.
 
-Use `npm run dev:watch` to push changes to the test environment.
+## Wiki
+- [Design](./wiki/design.md)
+  - [Clasp](./wiki/clasp.md)
+- [TODO](./wiki/todo.md)
 
-## Clasp usage
+## book-friends-server
 
-Read more about Clasp's usage on the [official documentation](https://github.com/google/clasp)
-
-**Before starting to work make sure you're logged-in**
-```sh
-npx clasp login
-```
-
-**If you want to pull latest remote scripts use:**
-```sh
-npx clasp pull
-```
-Always pull when initializing a new project.
-
-**Push changes to Google:**
-```sh
-npx clash push
-```
+Use `npm run dev:watch` to push changes to the test environment while developing
