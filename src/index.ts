@@ -1,9 +1,14 @@
 import { TableFactory } from "./data/TableFactory"
+import { Environment, TableIDs } from "./env"
 
-const tableFactory = new TableFactory('SHEET_ID')
-const booksTable = tableFactory.getTable('BOOKS_TABLE_ID')
+const tableFactory = new TableFactory(Environment.SHEET_ID)
+const booksTable = tableFactory.getTable(TableIDs.BOOKS)
 
 function doGet() {
-  const books = booksTable.getAll().map(row => row.join(' ')).join(', ')
-  return HtmlService.createHtmlOutput(books)
+  const books = booksTable.getAll().map(row => {
+    const [id, title] = row
+    return { id, title }
+  })
+  return ContentService.createTextOutput(JSON.stringify(books))
+    .setMimeType(ContentService.MimeType.JSON)
 }

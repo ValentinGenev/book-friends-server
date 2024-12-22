@@ -1,5 +1,6 @@
 import { Sheet } from "./Sheet"
 import { Table } from "./Table"
+import { TableOperations } from "./TableOperations"
 
 export class TableFactory {
   private sheet: Sheet
@@ -8,7 +9,7 @@ export class TableFactory {
     this.sheet = new Sheet(sheetId)
   }
 
-  getTable(tableId: string) {
+  getTable(tableId: string): TableOperations {
     return new Table(this.sheet.getTable(tableId))
   }
 }

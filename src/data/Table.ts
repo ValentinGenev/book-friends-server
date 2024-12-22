@@ -15,7 +15,7 @@ export class Table implements TableOperations {
     const rows = this.table.getDataRange().getValues()
     for (let i = 0; i < rows.length; i++) {
       if (rows[i][0] === id) {
-        this.table.getRange(i + 1, 1, 1, data.length).setValues([data]) // ranges start from 1?
+        this.table.getRange(i, 1, 1, data.length).setValues([data])
         break
       }
     }

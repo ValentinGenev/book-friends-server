@@ -19,6 +19,5 @@ Always pull when initializing a new project.
 
 **Push changes to Google:**
 ```sh
-cd bin/
 npx clash push
 ```
