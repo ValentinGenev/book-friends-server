@@ -1,8 +1,8 @@
 import { TableFactory } from "./data/TableFactory"
-import { Environment, TableIDs } from "./env"
+import { Environment } from "./env.ts.placeholder"
 
-const tableFactory = new TableFactory(Environment.SHEET_ID)
-const booksTable = tableFactory.getTable(TableIDs.BOOKS)
+const tableFactory = new TableFactory(Environment.sheetId)
+const booksTable = tableFactory.getTable('books')
 
 function doGet(e) {
   const books = booksTable.getAll().map(row => {

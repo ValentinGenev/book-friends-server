@@ -1,5 +1,7 @@
 node_modules/
 
+src/env.ts
+
 # Google App Script
 #   .clasp.json holds the environment variables
 .clasp.json

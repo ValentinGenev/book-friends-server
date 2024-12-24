@@ -13,11 +13,23 @@
 - being super LEAN.
 
 ## Architecture
-In the beginning use Google Sheet and its API for persistence; make sure to keep the logic around this layer as tin as possible.<br>
-Critically evaluate what level of OOP is needed. I would try with vanilla JS at the beinning.
-*Do we need a standalone server between the client and the Google Sheet or we can just put all the logic in a Google Action?*
-*Can we use one repo for both the frontend and the backend? Are the GitHub worflow concers that limitting?*
 
+### Server
+In the beginning use Google Sheet and its API for persistence; make sure to keep the logic around this layer as tin as possible.<br>
+~~Do we need a standalone server between the client and the Google Sheet or we can just put all the logic in a Google Action?~~ **NO!**<br>
+~~Can one repo be used for both the frontend and the backend? Are the GitHub workflow a concern that limiting?~~ Actually, why not? The contracts are a shared resource; also, there are environment variables like the deployment ID.
+
+Be vary careful not to allow formula submission in the Google Sheet since it could lead to data access and maybe even data manipulation/deletion.
+
+#### Authentication
+The Google Authentication library should be used and ony the user ID should be stored. Only set ID should be related to the user's data.
+
+*How do we make sure that the session is valid on the BE? Do we need to?*<br>
+If we get the ID from the session we MUST know if the sessions is valid.<br>
+If the Web App has access "Anyone with Google account" then all the calls that reach the server should have valid sessions.
+
+### Client
 Angular apps can be deployed to GitHub's page feature: https://v17.angular.io/guide/deployment.
 
+### CI/CD
 GitHub action can be used to run unit tests and deploy changes in the app.
