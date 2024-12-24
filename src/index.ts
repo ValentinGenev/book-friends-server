@@ -1,7 +1,6 @@
 import { TableFactory } from "./data/TableFactory"
+import { SHEET_ID } from "./env"
 
-// WARNING: the following two constants should be changed if the sheet changes
-// FIXME: find a viable solution for storing the constants
 const tableFactory = new TableFactory(SHEET_ID)
 const booksTable = tableFactory.getTable('books')
 
