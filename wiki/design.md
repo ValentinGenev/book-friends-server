@@ -26,7 +26,10 @@ The Google Authentication library should be used and ony the user ID should be s
 
 *How do we make sure that the session is valid on the BE? Do we need to?*<br>
 If we get the ID from the session we MUST know if the sessions is valid.<br>
-If the Web App has access "Anyone with Google account" then all the calls that reach the server should have valid sessions.
+If the Web App has access "Anyone with Google account" then all the calls that reach the server should have valid sessions.<br>
+For each call that needs Authorization the client needs to pass the Auth token in the request and it should be compared for similarity against the one provided by the GAS API. See: https://developers.google.com/apps-script/reference/script/script-app#getoauthtoken.
+
+I should also think about some sort of CORS policies.
 
 ### Client
 Angular apps can be deployed to GitHub's page feature: https://v17.angular.io/guide/deployment.
