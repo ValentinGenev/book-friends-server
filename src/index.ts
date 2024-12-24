@@ -1,7 +1,8 @@
 import { TableFactory } from "./data/TableFactory"
-import { Environment } from "./env.ts"
 
-const tableFactory = new TableFactory(Environment.sheetId)
+// WARNING: the following two constants should be changed if the sheet changes
+// FIXME: find a viable solution for storing the constants
+const tableFactory = new TableFactory('135TkDWPG6hBXVDP-32peskgtX8IsACWANNVk6LmUHYY')
 const booksTable = tableFactory.getTable('books')
 
 function doGet(e) {
@@ -17,4 +18,5 @@ function doPost(e) {
   const content = e.postData.contents
   // TODO: finish this
   return ContentService.createTextOutput(JSON.stringify(content))
+    .setMimeType(ContentService.MimeType.JSON)
 }

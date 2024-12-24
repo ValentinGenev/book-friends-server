@@ -9,8 +9,8 @@ export class TableFactory {
     this.sheet = new Sheet(sheetId)
   }
 
-  getTable(tableId: string): TableOperations {
-    return new Table(this.sheet.getTable(tableId))
+  getTable(name: string): TableOperations {
+    return new Table(this.sheet.getTable(name))
   }
 }
 

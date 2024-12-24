@@ -1,1 +1,4 @@
-{"scriptId":"$SCRIPT_ID","rootDir":"./src"}
+{
+    "scriptId":"uniq-id",
+    "rootDir":"./src"
+}
