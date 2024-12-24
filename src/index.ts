@@ -1,5 +1,5 @@
 import { TableFactory } from "./data/TableFactory"
-import { Environment } from "./env.ts.placeholder"
+import { Environment } from "./env.ts"
 
 const tableFactory = new TableFactory(Environment.sheetId)
 const booksTable = tableFactory.getTable('books')
