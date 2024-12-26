@@ -1,4 +1,8 @@
 {
-    "scriptId":"uniq-id",
-    "rootDir":"./src"
+  "scriptId":"uniq-id",
+  "rootDir":"./src",
+  "filePushOrder": [
+    "src/env.ts",
+    "src/services/TempPasswordService.ts"
+  ]
 }

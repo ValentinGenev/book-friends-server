@@ -1,5 +1,6 @@
 export interface Response {
-  status: Status
+  status: Status,
+  message?: string
 }
 
 export enum Status {

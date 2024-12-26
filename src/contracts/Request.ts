@@ -1,8 +1,14 @@
 export interface Request {
   action: RequestAction
-  body?: any
+  token?: string
+  data?: Login
+}
+
+export interface Login {
+  email: string
 }
 
 export enum RequestAction {
+  LOGIN = "login",
   GET_ALL_BOOKS = "get_all_books"
 }
