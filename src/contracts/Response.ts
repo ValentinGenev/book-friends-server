@@ -1,6 +1,11 @@
 export interface Response {
   status: Status,
-  message?: string
+  message?: string,
+  data?: Session;
+}
+
+export interface Session {
+  token: string
 }
 
 export enum Status {

@@ -4,8 +4,8 @@ interface Cache {
   remove(key: string): void
 }
 
-export class TempPasswordService {
-  private cache: Cache
+export class TempPassword {
+  private readonly cache: Cache
 
   constructor(cache: Cache) {
     this.cache = cache
@@ -17,7 +17,7 @@ export class TempPasswordService {
     return password
   }
 
-  generatePassword(length: number) {
+  private generatePassword(length: number) {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
