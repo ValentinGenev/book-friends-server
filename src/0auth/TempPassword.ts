@@ -1,19 +1,16 @@
-interface Cache {
-  put(key: string, value: string, expirationInSeconds: number): void
-  get(key: string): string | null
-  remove(key: string): void
-}
+import { SALT } from "../env"
+import { Cache, Utilities } from "../interfaces";
 
+// TODO: move towards normal password at some point?
 export class TempPassword {
-  private readonly cache: Cache
-
-  constructor(cache: Cache) {
-    this.cache = cache
-  }
+  constructor(
+    private readonly cache: Cache,
+    private readonly utils: Utilities
+  ) { }
 
   getPassword(email: string): string {
     const password = this.generatePassword(8);
-    this.cache.put(email, password, 300)
+    this.cache.put(email, this.hashPassword(password), 300)
     return password
   }
 
@@ -33,10 +30,16 @@ export class TempPassword {
     if (cachedP === null) {
       return false;
     }
-    return password === cachedP
+    return this.hashPassword(password) === cachedP
   }
 
   removePassword(email: string) {
     this.cache.remove(email)
+  }
+
+  private hashPassword(password: string): string {
+    return this.utils.computeHmacSha256Signature(password, SALT)
+      .map(function (chr) { return (chr + 256).toString(16).slice(-2) })
+      .join('')
   }
 }

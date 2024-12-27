@@ -3,9 +3,9 @@ import { Table } from "./Table"
 import { TableOperations } from "./TableOperations"
 
 export class TableFactory {
-  private sheet: Sheet
+  private readonly sheet: Sheet
 
-  constructor (sheetId: string) {
+  constructor(sheetId: string) {
     this.sheet = new Sheet(sheetId)
   }
 

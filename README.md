@@ -6,7 +6,9 @@ An application that allows its users to:
 
 ## Wiki
 - [Design](./wiki/design.md)
+  - [Security](./wiki/security.md)
   - [Clasp](./wiki/clasp.md)
+  - [Deployment](./wiki/deployment.md)
 - [TODO](./wiki/todo.md)
 
 ## book-friends-server

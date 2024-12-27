@@ -4,6 +4,7 @@
   "filePushOrder": [
     "src/env.ts",
     "src/contracts/Request.ts",
-    "src/contracts/Response.ts"
+    "src/contracts/Response.ts",
+    "src/interfaces.ts"
   ]
 }
