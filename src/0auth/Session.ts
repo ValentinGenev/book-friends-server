@@ -17,7 +17,6 @@ type MailData = {
 export class Session {
   constructor(
     private readonly tempPassword: TempPassword,
-    private readonly mail: Mail,
     private readonly cache: Cache,
     private readonly utils: Utilities
   ) { }

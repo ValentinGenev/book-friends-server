@@ -3,8 +3,7 @@
   "rootDir":"./src",
   "filePushOrder": [
     "src/env.ts",
-    "src/contracts/Request.ts",
-    "src/contracts/Response.ts",
-    "src/interfaces.ts"
+    "src/0contracts/Request.ts",
+    "src/0contracts/Response.ts"
   ]
 }

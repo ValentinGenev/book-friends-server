@@ -10,7 +10,7 @@ const tableFactory = new TableFactory(SHEET_ID)
 const booksTable = tableFactory.getTable('books')
 const cacheService = CacheService.getScriptCache()
 const tempPassword = new TempPassword(cacheService, Utilities)
-const session = new Session(tempPassword, MailApp, cacheService, Utilities)
+const session = new Session(tempPassword, cacheService, Utilities)
 const users = new Users(tableFactory.getTable('users'), Utilities, Logger)
 
 function doGet(e) {

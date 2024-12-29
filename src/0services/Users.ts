@@ -1,5 +1,6 @@
-import { UsersTable } from "../0data/schemas"
+import { UsersRow, UsersColumns } from "../0data/schemas"
 import { TableOperations } from "../0data/TableOperations"
+import { SALT } from "../env"
 import { Logger, Utilities } from "../interfaces"
 
 export class Users {
@@ -10,18 +11,25 @@ export class Users {
   ) { }
 
   hasUser(email: string): boolean {
-    return Boolean(this.usersTable.findByValue(email))
+    const hashedEmail = this.hashEmail(email)
+    return Boolean(this.usersTable.findByValue(hashedEmail))
   }
 
   createUser(email: string): string {
     this.logger.log(`User created: ${email}`)
-    // TODO: hash the email
-    const userId = this.utils.getUuid()
-    this.usersTable.add([userId, email])
-    return userId
+    const user: UsersRow = [this.utils.getUuid(), this.hashEmail(email)]
+    this.usersTable.add(user)
+    return user[UsersColumns.UUID]
   }
 
   findId(email: string): string | undefined {
-    return this.usersTable.findByValue(email)?.at(UsersTable.UUID)
+    const hashedEmail = this.hashEmail(email)
+    return this.usersTable.findByValue(hashedEmail)?.at(UsersColumns.UUID)
+  }
+
+  private hashEmail(email: string): string {
+    return this.utils.computeHmacSha256Signature(email, SALT)
+      .map(function (chr) { return (chr + 256).toString(16).slice(-2) })
+      .join('')
   }
 }

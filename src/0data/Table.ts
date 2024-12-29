@@ -1,4 +1,4 @@
-import { GenericTable } from "./schemas"
+import { GenericColumns } from "./schemas"
 import { TableOperations } from "./TableOperations"
 
 export class Table implements TableOperations {
@@ -11,7 +11,7 @@ export class Table implements TableOperations {
   update(id: string, data: any[]) {
     const rows = this.table.getDataRange().getValues()
     for (let i = 0; i < rows.length; i++) {
-      if (rows[i][GenericTable.UUID] === id) {
+      if (rows[i][GenericColumns.UUID] === id) {
         this.table.getRange(i, 1, 1, data.length).setValues([data])
         break
       }
@@ -20,7 +20,7 @@ export class Table implements TableOperations {
 
   findById(id: string): any[] | undefined {
     const rows = this.table.getDataRange().getValues()
-    return rows.find(row => row[GenericTable.UUID] === id)
+    return rows.find(row => row[GenericColumns.UUID] === id)
   }
 
   findByValue(value: string): any[] | undefined {
