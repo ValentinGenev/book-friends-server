@@ -1,7 +1,7 @@
+import { Table } from "../interfaces"
 import { GenericColumns } from "./schemas"
-import { TableOperations } from "./TableOperations"
 
-export class Table implements TableOperations {
+export class TableImpl implements Table {
   constructor(private readonly table: GoogleAppsScript.Spreadsheet.Sheet) { }
 
   add(data: any[]) {

@@ -7,7 +7,7 @@ export interface Request {
 export enum RequestAction {
   LOGIN = 'login',
   VALIDATE_CREDENTIALS = 'validate_credentials',
-  GET_BOOKS = 'get_books',
+  GET_BOOKS_BY_USER = 'get_books_by_user',
   GET_ALL_BOOKS = 'get_all_books'
 }
 

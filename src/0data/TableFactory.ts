@@ -1,6 +1,6 @@
+import { Table } from "../interfaces"
 import { Sheet } from "./Sheet"
-import { Table } from "./Table"
-import { TableOperations } from "./TableOperations"
+import { TableImpl } from "./TableImpl"
 
 export class TableFactory {
   private readonly sheet: Sheet
@@ -9,8 +9,8 @@ export class TableFactory {
     this.sheet = new Sheet(sheetId)
   }
 
-  getTable(name: string): TableOperations {
-    return new Table(this.sheet.getTable(name))
+  getTable(name: string): Table {
+    return new TableImpl(this.sheet.getTable(name))
   }
 }
 

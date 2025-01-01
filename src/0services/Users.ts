@@ -1,13 +1,11 @@
 import { UsersRow, UsersColumns } from "../0data/schemas"
-import { TableOperations } from "../0data/TableOperations"
 import { SALT } from "../env"
-import { Logger, Utilities } from "../interfaces"
+import { Table, Utilities } from "../interfaces"
 
 export class Users {
   constructor(
-    private readonly usersTable: TableOperations,
-    private readonly utils: Utilities,
-    private readonly logger: Logger
+    private readonly usersTable: Table,
+    private readonly utils: Utilities
   ) { }
 
   hasUser(email: string): boolean {
@@ -16,7 +14,6 @@ export class Users {
   }
 
   createUser(email: string): string {
-    this.logger.log(`User created: ${email}`)
     const user: UsersRow = [this.utils.getUuid(), this.hashEmail(email)]
     this.usersTable.add(user)
     return user[UsersColumns.UUID]
