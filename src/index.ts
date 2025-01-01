@@ -5,6 +5,7 @@ import { SHEET_ID } from "./env"
 import { TempPassword } from "./0auth/TempPassword"
 import { Session } from "./0auth/Session"
 import { Users } from "./0services/Users"
+import { UsersBooksColumns } from "./0data/schemas"
 
 const tableFactory = new TableFactory(SHEET_ID)
 const cache = CacheService.getScriptCache()
@@ -80,9 +81,20 @@ function validateCredentials(data: ValidateCredentials): Response {
 }
 
 function getBooksByUser(request: Request): Response {
+  const loginErrorMsg = { status: Status.ERROR, message: 'You must login first.' }
   const session = new Session(cache, Utilities)
-  if (!request.token || !session.getCurrentUserId(request.token)) {
-    return { status: Status.ERROR, message: 'You must login first.' }
+  if (!request.token) {
+    return loginErrorMsg
   }
-  return { status: Status.OK }
+  const userId = session.getCurrentUserId(request.token)
+  if (!userId) {
+    return loginErrorMsg
+  }
+
+  const userBookTable = tableFactory.getTable('users_books')
+  const userBooks = userBookTable.findAllById(userId)
+  const booksTable = tableFactory.getTable('books')
+  const books = userBooks
+    .map(book => booksTable.findById(book[UsersBooksColumns.BOOK_ID]));
+  return { status: Status.OK, data: { books } }
 }

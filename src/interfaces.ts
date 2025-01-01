@@ -17,6 +17,7 @@ export interface Table {
   add(data: any[]): void
   update(id: string, data: any[]): void
   findById(id: string): any
+  findAllById(value: string): any[][]
   findByValue(value: string): any[] | undefined
   getAll(): any[]
 }

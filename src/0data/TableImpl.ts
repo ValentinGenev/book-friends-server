@@ -23,6 +23,11 @@ export class TableImpl implements Table {
     return rows.find(row => row[GenericColumns.UUID] === id)
   }
 
+  findAllById(id: string): any[][] {
+    const rows = this.table.getDataRange().getValues()
+    return rows.filter(row => row[GenericColumns.UUID] === id)
+  }
+
   findByValue(value: string): any[] | undefined {
     const rows = this.table.getDataRange().getValues()
     return rows.find(row => row.includes(value))
