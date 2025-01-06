@@ -9,3 +9,5 @@
 6. Separate the sheet and the Google Apps Script.
 7. Make automated tests with Postman.
 8. Think how to make the URL of the API permanent.
+
+At some point an ASL should be created to map the Google Sheet data arrays to TS interfaces.

@@ -10,6 +10,7 @@ import { ValidateCredentials } from "./ValidateCredentials";
 import { Users } from "../0services/Users";
 import { SHEET_ID } from "../env";
 import { GetAllBooks } from "./GetAllBooks";
+import { AddBookToUser } from "./AddBookToUser";
 
 export class ActionFactory {
   private readonly tableFactory: TableFactory
@@ -39,6 +40,13 @@ export class ActionFactory {
           this.tempPassword,
           this.session,
           new Users(this.tableFactory.getTable('users'), this.utils))
+
+      case RequestAction.ADD_BOOK_TO_USER:
+        return new AddBookToUser(
+          this.session,
+          this.tableFactory.getTable('books'),
+          this.tableFactory.getTable('users_books'),
+          this.utils);
 
       case RequestAction.GET_BOOKS_BY_USER:
         return new GetBooksByUser(
