@@ -1,8 +1,11 @@
-import { Request, AddBookToUser as IAddBookToUser } from "../0contracts/Request"
-import { Response, Status } from "../0contracts/Response"
-import { Session } from "../0auth/Session"
-import { Action, Table, Utilities } from "../interfaces"
-import { BooksColumns, BooksRow, UsersBooksRow } from "../0data/schemas"
+import { Action } from "./interfaces";
+import { Session } from "../../0infrastructure/auth/Session";
+import { Table, Utilities } from "../../0infrastructure/interfaces";
+import { Status } from "../../0infrastructure/api-contracts/Response";
+import { Request, AddBookToUser as IAddBookToUser } from "../../0infrastructure/api-contracts/Request";
+import { Response } from "../../0infrastructure/api-contracts/Response";
+import { BooksColumns, BooksRow, UsersBooksRow } from "../../0infrastructure/persistence/schemas";
+
 
 export class AddBookToUser implements Action {
   constructor(

@@ -1,5 +1,5 @@
-import { Request, RequestAction } from "./0contracts/Request"
-import { ActionFactory } from "./0actions/ActionFactory"
+import { Request, RequestAction } from "./0app/api-contracts/Request"
+import { ActionFactory } from "./0app/actions/ActionFactory"
 
 const actionFactory = new ActionFactory(
   CacheService.getScriptCache(),

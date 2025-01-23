@@ -1,4 +1,4 @@
-import { BooksRow } from "../0data/schemas";
+import { BooksRow } from "../../0infrastructure/persistence/schemas";
 
 export interface Response {
   status: Status,

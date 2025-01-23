@@ -1,10 +1,10 @@
-import { Request } from "../0contracts/Request";
-import { Response, Status } from "../0contracts/Response";
-import { Action } from "../interfaces";
-import { ValidateCredentials as IValidateCredentials } from "../0contracts/Request";
-import { TempPassword } from "../0auth/TempPassword";
-import { Session } from "../0auth/Session";
-import { Users } from "../0services/Users";
+import { Session } from "../../0infrastructure/auth/Session";
+import { Action } from "./interfaces";
+import { Status } from "../../0infrastructure/api-contracts/Response";
+import { Response } from "../../0infrastructure/api-contracts/Response";
+import { Request, ValidateCredentials as IValidateCredentials } from "../../0infrastructure/api-contracts/Request";
+import { TempPassword } from "../../0infrastructure/auth/TempPassword";
+import { Users } from "../../0model/services/Users";
 
 export class ValidateCredentials implements Action {
   constructor(

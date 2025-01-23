@@ -1,8 +1,10 @@
-import { Status, Response } from "../0contracts/Response"
-import { Request } from "../0contracts/Request"
-import { UsersBooksColumns } from "../0data/schemas"
-import { Session } from "../0auth/Session"
-import { Action, Table } from "../interfaces"
+import { Session } from "../../0infrastructure/auth/Session";
+import { Action } from "./interfaces";
+import { Status } from "../../0infrastructure/api-contracts/Response";
+import { Table } from "../../0infrastructure/interfaces";
+import { Response } from "../../0infrastructure/api-contracts/Response";
+import { Request } from "../../0infrastructure/api-contracts/Request";
+import { UsersBooksColumns } from "../../0infrastructure/persistence/schemas";
 
 export class GetBooksByUser implements Action {
   constructor(

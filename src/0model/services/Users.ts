@@ -1,6 +1,6 @@
-import { UsersRow, UsersColumns } from "../0data/schemas"
-import { SALT } from "../env"
-import { Table, Utilities } from "../interfaces"
+import { Table, Utilities } from "../../0infrastructure/interfaces"
+import { UsersColumns, UsersRow } from "../../0infrastructure/persistence/schemas"
+import { SALT } from "../../env"
 
 export class Users {
   constructor(

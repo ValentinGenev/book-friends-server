@@ -1,16 +1,18 @@
-import { Action, Cache, SendEmail, Utilities } from "../interfaces";
-import { RequestAction } from "../0contracts/Request";
-import { Status } from "../0contracts/Response";
-import { Session } from "../0auth/Session";
-import { TableFactory } from "../0data/TableFactory";
+
 import { GetBooksByUser } from "./getBooksByUser";
 import { Login } from "./Login";
-import { TempPassword } from "../0auth/TempPassword";
 import { ValidateCredentials } from "./ValidateCredentials";
-import { Users } from "../0services/Users";
-import { SHEET_ID } from "../env";
+import { SHEET_ID } from "../../env";
 import { GetAllBooks } from "./GetAllBooks";
 import { AddBookToUser } from "./AddBookToUser";
+import { TableFactory } from "../../0infrastructure/persistence/TableFactory";
+import { TempPassword } from "../../0infrastructure/auth/TempPassword";
+import { Session } from "../../0infrastructure/auth/Session";
+import { Cache, Utilities, SendEmail } from "../../0infrastructure/interfaces";
+import { RequestAction } from "../../0infrastructure/api-contracts/Request";
+import { Action } from "./interfaces";
+import { Status } from "../../0infrastructure/api-contracts/Response";
+import { Users } from "../../0model/services/Users";
 
 export class ActionFactory {
   private readonly tableFactory: TableFactory

@@ -1,4 +1,4 @@
-import { SALT } from "../env"
+import { SALT } from "../../env"
 import { Cache, Utilities } from "../interfaces"
 
 export class Session {

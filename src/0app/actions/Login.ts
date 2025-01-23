@@ -1,8 +1,9 @@
-import { TempPassword } from "../0auth/TempPassword";
-import { Request } from "../0contracts/Request";
-import { Response, Status } from "../0contracts/Response";
-import { Action, SendEmail } from "../interfaces";
-import { Login as ILogin } from "../0contracts/Request";
+import { Action } from "./interfaces";
+import { Status } from "../../0infrastructure/api-contracts/Response";
+import { SendEmail } from "../../0infrastructure/interfaces";
+import { Response } from "../../0infrastructure/api-contracts/Response";
+import { Request, Login as ILogin } from "../../0infrastructure/api-contracts/Request";
+import { TempPassword } from "../../0infrastructure/auth/TempPassword";
 
 export class Login implements Action {
   constructor(

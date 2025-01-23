@@ -1,5 +1,5 @@
-import { SALT } from "../env"
-import { Cache, Utilities } from "../interfaces";
+import { SALT } from "../../env";
+import { Cache, Utilities } from "../interfaces"
 
 // TODO: move towards normal password at some point?
 export class TempPassword {

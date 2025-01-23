@@ -1,6 +1,3 @@
-import { Request } from "./0contracts/Request"
-import { Response } from "./0contracts/Response"
-
 export interface Cache {
   put(key: string, value: string, expirationInSeconds: number): void
   get(key: string): string | null
@@ -19,10 +16,6 @@ export interface Table {
   findAllById(value: string): any[][]
   findByValue(value: string): any[] | undefined
   getAll(): any[]
-}
-
-export interface Action {
-  execute(request?: Request): Response
 }
 
 export type SendEmail = (data: { to: string, subject: string, body: string }) => void
