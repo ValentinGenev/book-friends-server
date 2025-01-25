@@ -9,9 +9,9 @@ import { TableFactory } from "../../0infrastructure/persistence/TableFactory";
 import { TempPassword } from "../../0infrastructure/auth/TempPassword";
 import { Session } from "../../0infrastructure/auth/Session";
 import { Cache, Utilities, SendEmail } from "../../0infrastructure/interfaces";
-import { RequestAction } from "../../0infrastructure/api-contracts/Request";
-import { Action } from "./interfaces";
-import { Status } from "../../0infrastructure/api-contracts/Response";
+import { RequestAction } from "../api-contracts/Request";
+import { Action } from "../interfaces";
+import { Status } from "../api-contracts/Response";
 import { Users } from "../../0model/services/Users";
 
 export class ActionFactory {

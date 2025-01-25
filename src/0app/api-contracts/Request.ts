@@ -13,7 +13,8 @@ export enum RequestAction {
 }
 
 export interface Login {
-  email: string
+  email: string,
+  devEnvToken?: string
 }
 
 export interface ValidateCredentials {

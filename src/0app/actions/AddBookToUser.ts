@@ -1,9 +1,9 @@
-import { Action } from "./interfaces";
+import { Action } from "../interfaces";
 import { Session } from "../../0infrastructure/auth/Session";
 import { Table, Utilities } from "../../0infrastructure/interfaces";
-import { Status } from "../../0infrastructure/api-contracts/Response";
-import { Request, AddBookToUser as IAddBookToUser } from "../../0infrastructure/api-contracts/Request";
-import { Response } from "../../0infrastructure/api-contracts/Response";
+import { Status } from "../api-contracts/Response";
+import { Request, AddBookToUser as IAddBookToUser } from "../api-contracts/Request";
+import { Response } from "../api-contracts/Response";
 import { BooksColumns, BooksRow, UsersBooksRow } from "../../0infrastructure/persistence/schemas";
 
 

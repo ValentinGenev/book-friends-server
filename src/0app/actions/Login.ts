@@ -1,9 +1,10 @@
-import { Action } from "./interfaces";
-import { Status } from "../../0infrastructure/api-contracts/Response";
+import { Action } from "../interfaces";
+import { Status } from "../api-contracts/Response";
 import { SendEmail } from "../../0infrastructure/interfaces";
-import { Response } from "../../0infrastructure/api-contracts/Response";
-import { Request, Login as ILogin } from "../../0infrastructure/api-contracts/Request";
+import { Response } from "../api-contracts/Response";
+import { Request, Login as ILogin } from "../api-contracts/Request";
 import { TempPassword } from "../../0infrastructure/auth/TempPassword";
+import { DEV_ENV_TOKEN, IS_DEV } from "../../env";
 
 export class Login implements Action {
   constructor(
@@ -12,9 +13,13 @@ export class Login implements Action {
   ) {}
 
   execute(request: Request): Response {
-    const { email } = request.data as ILogin
+    const { email, devEnvToken } = request.data as ILogin
     if (!email) {
       return { status: Status.ERROR, message: 'Email not provided.' }
+    }
+
+    if (IS_DEV && devEnvToken === DEV_ENV_TOKEN) {
+      return { status: Status.OK, message: this.tempPassword.getPassword(email) }
     }
 
     this.sendEmail({

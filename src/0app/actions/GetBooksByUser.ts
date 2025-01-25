@@ -1,9 +1,9 @@
 import { Session } from "../../0infrastructure/auth/Session";
-import { Action } from "./interfaces";
-import { Status } from "../../0infrastructure/api-contracts/Response";
+import { Action } from "../interfaces";
+import { Status } from "../api-contracts/Response";
 import { Table } from "../../0infrastructure/interfaces";
-import { Response } from "../../0infrastructure/api-contracts/Response";
-import { Request } from "../../0infrastructure/api-contracts/Request";
+import { Response } from "../api-contracts/Response";
+import { Request } from "../api-contracts/Request";
 import { UsersBooksColumns } from "../../0infrastructure/persistence/schemas";
 
 export class GetBooksByUser implements Action {
