@@ -7,7 +7,8 @@
 4. ~~Make a request that shows the initial dummy data stored in the Google Sheet.~~
 5. ~~Figure out how to do different environments.~~
 6. Separate the sheet and the Google Apps Script.
-7. Make automated tests with Postman.
+7. ~~Make automated tests with Postman.~~
 8. Think how to make the URL of the API permanent.
+9. Describe the domain model with objects. Create some mapping to further abstract the data layer.
 
 At some point an ASL should be created to map the Google Sheet data arrays to TS interfaces.
