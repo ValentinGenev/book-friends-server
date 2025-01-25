@@ -4,7 +4,7 @@ import { Table, Utilities } from "../../0infrastructure/interfaces";
 import { Status } from "../api-contracts/Response";
 import { Request, AddBookToUser as IAddBookToUser } from "../api-contracts/Request";
 import { Response } from "../api-contracts/Response";
-import { BooksColumns, BooksRow, UsersBooksRow } from "../../0infrastructure/persistence/schemas";
+import { BooksColumns, BooksRow, UsersBooksColumns, UsersBooksRow } from "../../0infrastructure/persistence/schemas";
 
 
 export class AddBookToUser implements Action {
@@ -32,7 +32,9 @@ export class AddBookToUser implements Action {
         book = [this.utils.getUuid(), title]
         this.booksTable.add(book)
       }
-      // TODO: if the user has the book don't book. Stop booking. Please. Come one, man...
+      if (this.usersBooksTable.findByValue(book[UsersBooksColumns.USER_ID])) {
+        return { status: Status.OK }
+      }
 
       const userBookData = [userId, book[BooksColumns.UUID]] as UsersBooksRow
       this.usersBooksTable.add(userBookData)
